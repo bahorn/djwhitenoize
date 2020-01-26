@@ -1,5 +1,5 @@
 const density = 6
-const lineWidth = 4.4
+const lineWidth = 4.2
 let width = 1000
 let height = 1000
 
@@ -12,10 +12,23 @@ let speed = 50
 
 let note = 0;
 const notes = [
-  {speed: 75, boxh: 250, boxw: 150},
-  {speed: 15, boxh: 50, boxw: 50},
-  {speed: 75, boxh: 250, boxw: 150},
-  {speed: 15, boxh: 50, boxw: 50},
+  {speed: 75, boxh: 100, boxw: 0},
+  {speed: 75, boxh: 100, boxw: 0},
+  {speed: 0, boxh: 50, boxw: 0},
+  {speed: 200, boxh: 100, boxw: 0},
+  {speed: 200, boxh: 100, boxw: 0},
+  {speed: 200, boxh: 100, boxw: 0},
+  {speed: 100, boxh: 100, boxw: 0},
+  {speed: 0, boxh: 100, boxw: 0},
+  {speed: 0, boxh: 100, boxw: 0},
+  {speed: 125, boxh: 200, boxw: 0},
+  {speed: 125, boxh: 100, boxw: 0},
+  {speed: 0, boxh: 50, boxw: 0},
+  {speed: 125, boxh: 200, boxw: 0},
+  {speed: 125, boxh: 200, boxw: 0},
+  {speed: 125, boxh: 200, boxw: 0},
+  {speed: 0, boxh: 50, boxw: 0},
+  {speed: 0, boxh: 50, boxw: 0},
 ]
 
 function schedule() {
@@ -23,7 +36,7 @@ function schedule() {
   if (note >= notes.length) {
     note = 0
   }
-  base = 150
+  base = 400
   speed = notes[note].speed
   boxw = notes[note].boxw
   boxh = notes[note].boxh
@@ -38,7 +51,9 @@ function setup() {
   width = window.innerWidth;
   height = window.innerHeight;
   canvas.parent(canvasDiv)
-  window.setInterval(schedule, 1000)
+  
+
+  window.setInterval(schedule, 100)
 }
 
 function mousePressed() {
@@ -71,8 +86,8 @@ function draw() {
   }
 
   base += speed
-  if (base > width) {
-    base = 150
+  if (base > 410) {
+    base = 400
   }
 
   stroke(0)
@@ -82,4 +97,7 @@ function draw() {
   rect(width-boxh, 0, boxh, height)
   
   rect(0, (height)-boxh, width, boxh)
+  fill(255)
+  textSize(32)
+  text('#mememethacks #manmethacks #sorrynotsorry @baahorn', 10, 30);
 }
